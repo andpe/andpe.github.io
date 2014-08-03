@@ -1,0 +1,58 @@
+---
+layout: default
+---
+<script>
+function showOrgRepos(resp) {
+	showRepos(resp, false);
+}
+
+function showPrivRepos(resp) {
+	showRepos(resp, true);
+}
+function showRepos(resp, priv) {
+	var data = resp.data;
+	var dest = priv ? '#private' : '#org';
+
+	for(var i = 0; i < data.length; i++) {
+		var repo = data[i];
+
+		var r = $("#dummy").clone();
+		r.attr('id', "r" + repo.id);
+		r.find('.repo-title').html('<a href="' + repo.html_url + '">' + repo.name+ '</a>');
+		r.find('.description').html(repo.description);
+
+
+		$(dest).append(r);
+	}
+
+	$(dest).children().show();
+}
+</script>
+<div id="dummy" style="display:none">
+	<div class="header">
+		<h3 class="repo-title"><a>TITLE</a></h3>
+	</div>
+	<div class="description">
+		DESCRIPTION
+	</div>
+</div>
+
+<div id="private">
+	<h2>Personal projects</h2>
+	<div class="repolist-desc">
+		<!-- Short description of the list below -->
+		Listed below are some of the personal projects I've worked on.
+	</div>
+</div>
+
+<div id="org">
+	<h2>Organization projects</h2>
+	<div class="repolist-desc">
+		<!-- Short description of the list below -->
+		Listed below are some of the projects I've worked on as part of a GitHub
+		organization.
+	</div>
+</div>
+
+<script src="https://api.github.com/users/andpe/repos?callback=showPrivRepos"></script>
+<script src="https://api.github.com/orgs/Parnassos/repos?callback=showOrgRepos"></script>

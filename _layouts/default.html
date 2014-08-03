@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include head.html %}
+	<body>
+		{% include header.html %}
+		<div class="container">
+			<div class="col-md-2 col-xs-4">
+				<img src="//www.gravatar.com/avatar/ad3b38f04538bb13b5c15dc322e10692?s=150" class="img-rounded image-shadow image-float">
+				<h4>Andreas</h4>
+				<small class="text-muted">C/C++, Python, PHP, SQL, Linux, Networking</small>
+			</div>
+			<div class="col-md-10 col-xs-8">
+				{{ content }}
+			</div>
+		</div>
+	</body>
+</html>

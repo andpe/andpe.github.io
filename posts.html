@@ -1,0 +1,15 @@
+---
+layout: default
+title: Posts
+---
+{% for post in site.posts %}
+	<article class="post-article">
+		<h2 class="header">
+			{{ post.title }}
+		</h2>
+		<div class="excerpt">
+			{{ post.excerpt }}
+		</div>
+		<a href="{{ post.url }}">More &#8594;</a>
+	</article>
+{% endfor %}

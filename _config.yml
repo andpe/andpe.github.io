@@ -1,0 +1,10 @@
+# Site settings
+title: andpe
+email: d12andpe@student.his.se
+description: "Personal site on GitHub for andpe"
+baseurl: ""
+url: "http://andpe.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
